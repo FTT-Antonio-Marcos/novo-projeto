@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Online - Envios de Projetos</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Estilo customizado para o cabeçalho com imagem de fundo */
+    .jumbotron {
+      padding: 4rem 2rem;
+      background: url('https://via.placeholder.com/1500x400') no-repeat center center;
+      background-size: cover;
+      color: black;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Projeto Online</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#enviarProjeto">Enviar Projeto</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="modal" href="#loginModal" role="button">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="modal" href="#registerModal" role="button">Cadastre-se</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Cabeçalho / Jumbotron -->
+  <header class="jumbotron text-center" id="home">
+    <div class="container">
+      <h1 class="display-4">Bem-vindo ao Projeto Online</h1>
+      <p class="lead">A plataforma definitiva para envio e gerenciamento de projetos.</p>
+      <a href="#enviarProjeto" class="btn btn-primary btn-lg">Envie Seu Projeto</a>
+    </div>
+  </header>
+
+  <!-- Seção de Projetos em Destaque (Carrossel) -->
+  <section id="projetos" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Projetos em Destaque</h2>
+      <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#projectsCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://via.placeholder.com/1200x400?text=Projeto+1" class="d-block w-100" alt="Projeto 1">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Projeto Incrível 1</h5>
+              <p>Uma breve descrição do projeto.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/1200x400?text=Projeto+2" class="d-block w-100" alt="Projeto 2">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Projeto Incrível 2</h5>
+              <p>Uma breve descrição do projeto.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://via.placeholder.com/1200x400?text=Projeto+3" class="d-block w-100" alt="Projeto 3">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Projeto Incrível 3</h5>
+              <p>Uma breve descrição do projeto.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Envio de Projeto -->
+  <section id="enviarProjeto" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Envie Seu Projeto</h2>
+      <form id="projectSubmissionForm" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="projectTitle" class="form-label">Título do Projeto</label>
+          <input type="text" class="form-control" id="projectTitle" name="projectTitle" placeholder="Digite o título do projeto" required>
+        </div>
+        <div class="mb-3">
+          <label for="projectDescription" class="form-label">Descrição do Projeto</label>
+          <textarea class="form-control" id="projectDescription" name="projectDescription" rows="5" placeholder="Descreva seu projeto detalhadamente" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="projectFiles" class="form-label">Anexar Arquivos</label>
+          <input class="form-control" type="file" id="projectFiles" name="projectFiles" multiple required>
+          <div class="form-text">Anexe imagens, documentos e outros arquivos relacionados ao projeto.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Projeto</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Seção de Contato -->
+  <section id="contato" class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Contato</h2>
+      <form id="contactForm">
+        <div class="mb-3">
+          <label for="contactName" class="form-label">Nome</label>
+          <input type="text" class="form-control" id="contactName" name="contactName" placeholder="Seu nome" required>
+        </div>
+        <div class="mb-3">
+          <label for="contactEmail" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="Seu e-mail" required>
+        </div>
+        <div class="mb-3">
+          <label for="contactMessage" class="form-label">Mensagem</label>
+          <textarea class="form-control" id="contactMessage" name="contactMessage" rows="4" placeholder="Sua mensagem" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar Mensagem</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Modal de Login -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Seu e-mail" required>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Cadastro -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="registerModalLabel">Cadastre-se</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="registerForm">
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Nome Completo</label>
+              <input type="text" class="form-control" id="registerName" name="registerName" placeholder="Seu nome completo" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">E-mail</label>
+              <input type="email" class="form-control" id="registerEmail" name="registerEmail" placeholder="Seu e-mail" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Escolha uma senha" required>
+            </div>
+            <div class="mb-3">
+              <label for="registerPasswordConfirm" class="form-label">Confirmar Senha</label>
+              <input type="password" class="form-control" id="registerPasswordConfirm" name="registerPasswordConfirm" placeholder="Confirme sua senha" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p>&copy; 2025 Projeto Online. Todos os direitos reservados.</p>
+      <p>Desenvolvido com Bootstrap 5 e Django</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script Customizado para simular submissão dos formulários -->
+  <script>
+    // Submissão de formulário de projeto
+    document.getElementById('projectSubmissionForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Projeto enviado com sucesso!');
+      // Aqui você pode inserir a lógica (AJAX ou integração com Django) para enviar os dados ao backend.
+      this.reset();
+    });
+
+    // Submissão de formulário de contato
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Mensagem enviada com sucesso!');
+      this.reset();
+    });
+
+    // Submissão de formulário de login
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Login realizado com sucesso!');
+      const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+      loginModal.hide();
+      this.reset();
+    });
+
+    // Submissão de formulário de cadastro
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Cadastro realizado com sucesso!');
+      const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+      registerModal.hide();
+      this.reset();
+    });
+  </script>
+</body>
+</html>
